@@ -1,7 +1,9 @@
-import React from "react";
+import styles from "./app.module.scss";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  return <div>app</div>;
+  const notes = useSelector((state) => state.notes);
+  return <div className={styles.app}>app</div>;
 };
 
 export default App;
