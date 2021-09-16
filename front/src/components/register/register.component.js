@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+
+import { newUser } from "../../redux/user/user.actions";
 
 import styles from "./register.module.scss";
 
@@ -7,19 +10,22 @@ import Paper from "../ui/paper/paper.component";
 import Input from "../ui/input/input.component";
 
 const Register = () => {
+  const dispatch = useDispatch();
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [newUser, setNewUser] = useState({
+  const [newUserData, setNewUserData] = useState({
     email: "",
     password: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newUser.password !== repeatPassword) {
+    if (newUserData.password !== repeatPassword) {
       alert("passwords  do not match");
       return;
     }
+    dispatch(newUser(newUserData));
   };
+
   return (
     <div className={styles.register}>
       <Paper color="yellow" title="Register" icon="sticky">
@@ -30,7 +36,7 @@ const Register = () => {
               <Input
                 type="email"
                 onChange={(e) =>
-                  setNewUser({ ...newUser, email: e.target.value })
+                  setNewUserData({ ...newUserData, email: e.target.value })
                 }
               />
             </li>
@@ -39,7 +45,7 @@ const Register = () => {
               <Input
                 type="password"
                 onChange={(e) =>
-                  setNewUser({ ...newUser, password: e.target.value })
+                  setNewUserData({ ...newUserData, password: e.target.value })
                 }
               />
             </li>
