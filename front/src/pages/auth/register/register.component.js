@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
-import { newUser } from "../../redux/user/user.actions";
+import { newUser } from "../../../redux/user/user.actions";
 
 import styles from "./register.module.scss";
 
-import Paper from "../ui/paper/paper.component";
-import Input from "../ui/input/input.component";
+import Paper from "../../../components/ui/paper/paper.component";
+import Input from "../../../components/ui/input/input.component";
 
-const Register = () => {
+const Register = ({ toggle }) => {
   const dispatch = useDispatch();
   const [repeatPassword, setRepeatPassword] = useState("");
   const [newUserData, setNewUserData] = useState({
@@ -21,6 +21,10 @@ const Register = () => {
     e.preventDefault();
     if (newUserData.password !== repeatPassword) {
       alert("passwords  do not match");
+      return;
+    }
+    if (newUserData.email === "") {
+      alert("enter email");
       return;
     }
     dispatch(newUser(newUserData));
@@ -65,7 +69,7 @@ const Register = () => {
           </div>
         </form>
       </Paper>
-      <div className={styles.login}>
+      <div className={styles.login} onClick={toggle}>
         <p>Login</p>
       </div>
     </div>

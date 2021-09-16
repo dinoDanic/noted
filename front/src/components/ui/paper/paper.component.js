@@ -3,7 +3,6 @@ import styles from "./paper.module.scss";
 import { Sticky } from "react-bootstrap-icons";
 
 const Paper = ({ color, title, children, icon }) => {
-  console.log(icon);
   const sticky = () => {
     return <Sticky />;
   };

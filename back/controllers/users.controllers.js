@@ -12,9 +12,25 @@ export const createUser = async (req, res) => {
     const newUser = await new Users(userData);
     const respond = await newUser.save();
     respond.password = null;
-    console.log(respond);
     res.json(respond);
   } catch (error) {
     res.json({ error: error.message });
   }
+};
+
+export const loginUser = async (req, res) => {
+  const userData = req.body;
+  const { email, password } = userData;
+  let findUser;
+  try {
+    findUser = await Users.findOne({ email: email });
+    console.log("end finding");
+  } catch (error) {}
+
+  if (password !== findUser.password) {
+    res.json({ message: "pass is not good" });
+    return;
+  }
+  findUser.password = null;
+  res.json(findUser);
 };
