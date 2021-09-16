@@ -1,9 +1,14 @@
+import Register from "./components/register/register.component";
+
 import styles from "./app.module.scss";
-import { useSelector } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
-  const notes = useSelector((state) => state.notes);
-  return <div className={styles.app}>app</div>;
+  return (
+    <div className={styles.app}>
+      <Register />
+    </div>
+  );
 };
 
 export default App;
