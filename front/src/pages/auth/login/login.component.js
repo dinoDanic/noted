@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
@@ -6,6 +7,7 @@ import { loginUser } from "../../../redux/user/user.actions";
 import { setIsLoading } from "../../../redux/body/body.actions";
 
 import styles from "./login.module.scss";
+import { basicAnimation } from "../../../theme/animations";
 
 import Paper from "../../../components/ui/paper/paper.component";
 import Input from "../../../components/ui/input/input.component";
@@ -37,7 +39,13 @@ const Login = ({ toggle }) => {
   };
 
   return (
-    <div className={styles.register}>
+    <motion.div
+      className={styles.register}
+      variants={basicAnimation}
+      animate="animate"
+      initial="initial"
+      exit="exit"
+    >
       <Paper color="yellow" title="Login" icon="sticky">
         <form onSubmit={handleSubmit}>
           <ul>
@@ -70,7 +78,7 @@ const Login = ({ toggle }) => {
       <div className={styles.login} onClick={toggle}>
         <p>Register</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

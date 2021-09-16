@@ -8,6 +8,8 @@ import styles from "./register.module.scss";
 
 import Paper from "../../../components/ui/paper/paper.component";
 import Input from "../../../components/ui/input/input.component";
+import { motion } from "framer-motion";
+import { basicAnimation } from "../../../theme/animations";
 
 const Register = ({ toggle }) => {
   const dispatch = useDispatch();
@@ -44,7 +46,13 @@ const Register = ({ toggle }) => {
   };
 
   return (
-    <div className={styles.register}>
+    <motion.div
+      className={styles.register}
+      variants={basicAnimation}
+      animate="animate"
+      initial="initial"
+      exit="exit"
+    >
       <Paper color="yellow" title="Register" icon="sticky">
         <form onSubmit={handleSubmit}>
           <ul>
@@ -85,7 +93,7 @@ const Register = ({ toggle }) => {
       <div className={styles.login} onClick={toggle}>
         <p>Login</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

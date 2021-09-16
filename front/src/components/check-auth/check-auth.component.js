@@ -11,7 +11,8 @@ const CheckAuth = () => {
   const path = history.location.pathname.split("/")[1];
 
   useEffect(() => {
-    if (user.email === "") {
+    console.log(user);
+    if (!user) {
       history.push("/auth");
     } else {
       if (path === "auth") {

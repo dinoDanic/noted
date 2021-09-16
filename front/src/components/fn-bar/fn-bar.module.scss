@@ -1,0 +1,16 @@
+.fnBar {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bar {
+  padding: 4px;
+  border-radius: 9px;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
