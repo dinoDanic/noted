@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
@@ -11,11 +11,24 @@ import Input from "../../../components/ui/input/input.component";
 
 const Register = ({ toggle }) => {
   const dispatch = useDispatch();
+  const [buttonValid, setButtonValid] = useState(false);
   const [repeatPassword, setRepeatPassword] = useState("");
   const [newUserData, setNewUserData] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (
+      newUserData.email === "" ||
+      newUserData.password === "" ||
+      !newUserData.email.includes("@")
+    ) {
+      setButtonValid(false);
+    } else {
+      setButtonValid(true);
+    }
+  }, [newUserData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +76,7 @@ const Register = ({ toggle }) => {
             </li>
           </ul>
           <div className={styles.button}>
-            <Button type="submit" size="sm">
+            <Button type="submit" size="sm" disabled={!buttonValid}>
               Register
             </Button>
           </div>

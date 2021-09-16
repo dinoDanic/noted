@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Spinner } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { loginUser } from "../../../redux/user/user.actions";
@@ -12,10 +12,23 @@ import Input from "../../../components/ui/input/input.component";
 
 const Login = ({ toggle }) => {
   const dispatch = useDispatch();
+  const [buttonValid, setButtonValid] = useState(false);
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (
+      loginData.email === "" ||
+      loginData.password === "" ||
+      !loginData.email.includes("@")
+    ) {
+      setButtonValid(false);
+    } else {
+      setButtonValid(true);
+    }
+  }, [loginData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +61,7 @@ const Login = ({ toggle }) => {
             </li>
           </ul>
           <div className={styles.button}>
-            <Button type="submit" size="sm">
+            <Button type="submit" size="sm" disabled={!buttonValid}>
               Login
             </Button>
           </div>
