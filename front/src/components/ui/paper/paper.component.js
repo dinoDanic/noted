@@ -14,12 +14,14 @@ const Paper = ({ color, title, children, icon }) => {
       style={{ backgroundColor: `var(--${color})` }}
       className={styles.paper}
     >
-      <div className={styles.header}>
-        <div className={styles.icon}>{icon && icons[icon]}</div>
-        <div className={styles.title}>
-          <h5>{title}</h5>
+      {title && (
+        <div className={styles.header}>
+          {icon && <div className={styles.icon}>{icons[icon]}</div>}
+          <div className={styles.title}>
+            <h5>{title}</h5>
+          </div>
         </div>
-      </div>
+      )}
       {children && <div className={styles.content}>{children}</div>}
     </div>
   );

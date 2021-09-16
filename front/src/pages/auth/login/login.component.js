@@ -45,6 +45,7 @@ const Login = ({ toggle }) => {
       animate="animate"
       initial="initial"
       exit="exit"
+      style={{ width: "400px" }}
     >
       <Paper color="yellow" title="Login" icon="sticky">
         <form onSubmit={handleSubmit}>

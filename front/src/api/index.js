@@ -6,3 +6,5 @@ export const newUserApi = (userData) =>
   axios.post(`${url}/users/new`, userData);
 
 export const loginUserApi = (data) => axios.post(`${url}/users/login`, data);
+
+export const newNote = (data) => axios.post(`${url}/notes/new`, data);

@@ -52,6 +52,7 @@ const Register = ({ toggle }) => {
       animate="animate"
       initial="initial"
       exit="exit"
+      style={{ width: "400px" }}
     >
       <Paper color="yellow" title="Register" icon="sticky">
         <form onSubmit={handleSubmit}>

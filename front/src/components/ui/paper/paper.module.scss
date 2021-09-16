@@ -1,5 +1,6 @@
 .paper {
-  width: 400px;
+  min-width: 270px;
+  width: 100%;
   border-radius: 10px;
   ul li {
     margin-bottom: 5px;
@@ -17,13 +18,13 @@
   display: flex;
   align-items: center;
   padding: 15px 20px;
+  padding-bottom: 0;
 }
 .icon {
   margin-right: 7px;
 }
 .content {
   padding: 15px 20px;
-  padding-bottom: 20px;
   font-weight: 300;
   font-size: 0.9rem;
 }
