@@ -1,9 +1,10 @@
 .note {
-  min-width: 270px;
   min-height: 85px;
-  width: 100%;
+  max-width: 800px;
+  flex: 1;
   border-radius: 10px;
   padding: 10px;
+  position: relative;
 }
 .header {
   display: flex;
@@ -14,4 +15,9 @@
 .content {
   font-weight: 300;
   font-size: 0.85rem;
+}
+.save {
+  position: absolute;
+  top: 0px;
+  right: 5px;
 }

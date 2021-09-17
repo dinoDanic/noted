@@ -17,5 +17,15 @@ export const getNotes = async (req, res) => {
 };
 
 export const updateNote = async (req, res) => {
-  console.log(req.params);
+  const { id } = req.params;
+  const data = req.body;
+  const filter = { _id: id };
+  const update = data;
+  try {
+    await Note.findOneAndUpdate(filter, update);
+    res.json({ message: "updated!" });
+  } catch (error) {
+    res.status(400).json({ message: "something went wrong" });
+    return;
+  }
 };

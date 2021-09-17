@@ -30,3 +30,10 @@ export const getNotes = () => async (dispatch) => {
     });
   } catch (error) {}
 };
+
+export const updateNote = (data) => async (dispatch) => {
+  const { _id } = data;
+  try {
+    await api.updateNote(_id, data);
+  } catch (error) {}
+};

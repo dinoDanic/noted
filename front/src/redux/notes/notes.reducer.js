@@ -1,5 +1,4 @@
 import notesActionTypes from "./notes.actionTypes";
-let INITAL_STATE = [];
 
 export const notesReducer = (state = [], action) => {
   switch (action.type) {

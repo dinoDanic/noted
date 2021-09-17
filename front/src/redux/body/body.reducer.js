@@ -3,6 +3,8 @@ import { bodyActionType } from "./body.bodyActionType";
 const INITIAL_STATE = {
   isLoading: false,
   newNote: false,
+  cloudUpload: true,
+  cloudDone: false,
 };
 
 export const bodyReducer = (state = INITIAL_STATE, action) => {
