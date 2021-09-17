@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./item.module.scss";
 
-const Item = ({ icon }) => {
+const Item = ({ icon, ...otherProps }) => {
   return (
-    <div className={styles.item}>
+    <div className={styles.item} {...otherProps}>
       <div className={styles.icon}>{icon}</div>
     </div>
   );

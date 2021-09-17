@@ -1,3 +1,17 @@
 .home {
   width: 100%;
 }
+.noteWrap {
+  width: 60%;
+  margin: 40px;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+.noteFlex {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.holdNote {
+}

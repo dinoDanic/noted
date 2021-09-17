@@ -11,11 +11,13 @@ import { Button } from "react-bootstrap";
 import { Save } from "react-bootstrap-icons";
 
 const NewNote = () => {
+  const dispatch = useDispatch();
+
   const [noteData, setNoteData] = useState({
     title: "",
     text: "",
   });
-  const dispatch = useDispatch();
+
   const setChange = (e) => {
     const target = e.target.name;
     const value = e.target.value;

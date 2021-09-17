@@ -8,3 +8,10 @@ export const createNote = async (req, res) => {
     res.json(respond);
   } catch (error) {}
 };
+
+export const getNotes = async (req, res) => {
+  try {
+    const noteData = await Note.find();
+    res.json(noteData);
+  } catch (error) {}
+};

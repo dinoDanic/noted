@@ -1,11 +1,12 @@
 import notesActionTypes from "./notes.actionTypes";
-const INITAL_STATE = [];
+let INITAL_STATE = [];
 
-export const notesReducer = (state = INITAL_STATE, action) => {
+export const notesReducer = (state = [], action) => {
   switch (action.type) {
     case notesActionTypes.NEW_NOTE:
-      console.log(INITAL_STATE);
-      return INITAL_STATE.push(action.payload);
+      return [...state, action.payload];
+    case notesActionTypes.GET_NOTES:
+      return action.payload;
     default:
       return state;
   }

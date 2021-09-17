@@ -17,7 +17,10 @@ const Paper = ({ color, title, children, icon }) => {
       {title && (
         <div className={styles.header}>
           {icon && <div className={styles.icon}>{icons[icon]}</div>}
-          <div className={styles.title}>
+          <div
+            className={styles.title}
+            style={{ marginBottom: !children && "10px" }}
+          >
             <h5>{title}</h5>
           </div>
         </div>
