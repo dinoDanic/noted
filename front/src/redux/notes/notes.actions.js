@@ -37,3 +37,15 @@ export const updateNote = (data) => async (dispatch) => {
     await api.updateNote(_id, data);
   } catch (error) {}
 };
+
+export const deleteNote = (id) => async (dispatch) => {
+  try {
+    await api.deleteNote(id);
+    dispatch({
+      type: notesActionTypes.DELETE_NOTE,
+      payload: id,
+    });
+  } catch (error) {
+    alert("something went wrong with deleting the note");
+  }
+};

@@ -29,3 +29,13 @@ export const updateNote = async (req, res) => {
     return;
   }
 };
+
+export const deleteNote = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Note.findOneAndDelete(id);
+    res.json({ message: "success! dleted!" });
+  } catch (error) {
+    res.status(400).json({ message: "error deleting" });
+  }
+};

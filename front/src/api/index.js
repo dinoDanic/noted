@@ -12,3 +12,5 @@ export const newNote = (data) => axios.post(`${url}/notes/new`, data);
 export const getNotes = () => axios.get(`${url}/notes/`);
 
 export const updateNote = (id, data) => axios.patch(`${url}/notes/${id}`, data);
+
+export const deleteNote = (id) => axios.delete(`${url}/notes/${id}`);

@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styles from "./note.module.scss";
-
+import { useDispatch } from "react-redux";
 import Input from "../ui/input/input.component";
 import Textarea from "../ui/textarea/textarea.component";
 
 import { updateNote } from "../../api";
+import { deleteNote } from "../../redux/notes/notes.actions";
 
-import { CloudArrowUp, CloudCheck } from "react-bootstrap-icons";
+import { CloudArrowUp, CloudCheck, Trash2 } from "react-bootstrap-icons";
 
 const Note = React.memo(({ note, color }) => {
   const { title, text, _id } = note;
-
+  const dispatch = useDispatch();
   const [cloudUpload, setCloudUpload] = useState(false);
   const [cloudDone, setCloudDone] = useState(false);
   const [newNote, setNewNote] = useState({
@@ -18,6 +19,19 @@ const Note = React.memo(({ note, color }) => {
     text: text,
     _id: _id,
   });
+
+  useEffect(() => {
+    let timeout = null;
+    if (newNote.title !== title || newNote.text !== text) {
+      setCloudUpload(true);
+      timeout = setTimeout(function () {
+        handleUpdate();
+      }, 1000);
+    }
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [newNote]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -42,18 +56,9 @@ const Note = React.memo(({ note, color }) => {
     setTimeout(() => setCloudDone(false), 2000);
   };
 
-  useEffect(() => {
-    let timeout = null;
-    if (newNote.title !== title || newNote.text !== text) {
-      setCloudUpload(true);
-      timeout = setTimeout(function () {
-        handleUpdate();
-      }, 1000);
-    }
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [newNote]);
+  const handleDelete = () => {
+    dispatch(deleteNote(_id));
+  };
 
   return (
     <div className={styles.note} style={{ backgroundColor: `var(--${color})` }}>
@@ -76,6 +81,9 @@ const Note = React.memo(({ note, color }) => {
       <div className={styles.save}>
         {cloudUpload && <CloudArrowUp />}
         {cloudDone && <CloudCheck />}
+      </div>
+      <div className={styles.delete} onClick={handleDelete}>
+        <Trash2 />
       </div>
     </div>
   );
