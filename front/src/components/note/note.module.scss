@@ -1,0 +1,17 @@
+.note {
+  min-width: 270px;
+  min-height: 85px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.content {
+  font-weight: 300;
+  font-size: 0.85rem;
+}

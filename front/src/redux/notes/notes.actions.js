@@ -1,12 +1,22 @@
 import * as api from "../../api";
+import { bodyActionType } from "../body/body.bodyActionType";
 import notesActionTypes from "../notes/notes.actionTypes";
 
 export const createNote = (noteData) => async (dispatch) => {
   try {
-    const { data } = await api.newNote(noteData);
+    const response = await api.newNote(noteData);
+    console.log(response);
+    if (response.statusText !== "OK") {
+      alert("failed creating note");
+      return;
+    }
     dispatch({
       type: notesActionTypes.NEW_NOTE,
-      payload: data,
+      payload: response.data,
+    });
+    dispatch({
+      type: bodyActionType.SET_NOTE,
+      payload: false,
     });
   } catch (error) {}
 };

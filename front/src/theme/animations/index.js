@@ -12,6 +12,6 @@ export const popButtom = {
 
 export const noteEnter = {
   initial: { scale: 0, opacity: 0 },
-  animate: { scale: 1, opacity: 1, transition: { delay: 0.3 } },
+  animate: { scale: 1, opacity: 1, transition: { delay: 0.2 } },
   exit: {},
 };

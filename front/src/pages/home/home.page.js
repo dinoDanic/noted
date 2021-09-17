@@ -30,7 +30,7 @@ const Home = () => {
                   initial="initial"
                   exit="exit"
                 >
-                  <Note note={note} />
+                  <Note note={note} color="yellow" />
                 </motion.div>
               );
             })}

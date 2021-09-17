@@ -15,3 +15,7 @@ export const getNotes = async (req, res) => {
     res.json(noteData);
   } catch (error) {}
 };
+
+export const updateNote = async (req, res) => {
+  console.log(req.params);
+};

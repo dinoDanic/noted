@@ -24,8 +24,14 @@ export const loginUser = async (req, res) => {
   let findUser;
   try {
     findUser = await Users.findOne({ email: email });
-    console.log("end finding");
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+    return;
+  }
+
+  if (!findUser) {
+    return res.json({ message: "no user with that email, register?" });
+  }
 
   if (password !== findUser.password) {
     res.json({ message: "pass is not good" });

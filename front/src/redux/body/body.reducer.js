@@ -2,6 +2,7 @@ import { bodyActionType } from "./body.bodyActionType";
 
 const INITIAL_STATE = {
   isLoading: false,
+  newNote: false,
 };
 
 export const bodyReducer = (state = INITIAL_STATE, action) => {
@@ -9,6 +10,11 @@ export const bodyReducer = (state = INITIAL_STATE, action) => {
     case bodyActionType.SET_IS_LOADING:
       return {
         isLoading: action.payload,
+      };
+    case bodyActionType.SET_NOTE:
+      return {
+        ...state,
+        newNote: action.payload,
       };
 
     default:

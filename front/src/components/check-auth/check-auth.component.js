@@ -1,12 +1,10 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { setIsLoading } from "../../redux/body/body.actions";
 
 const CheckAuth = () => {
   const user = useSelector((state) => state.user);
   const history = useHistory();
-  const dispatch = useDispatch();
 
   const path = history.location.pathname.split("/")[1];
 
@@ -16,10 +14,9 @@ const CheckAuth = () => {
     } else {
       if (path === "auth") {
         history.push("/");
-        dispatch(setIsLoading(false));
       }
     }
-  }, [user, history, path, dispatch]);
+  }, [user, history, path]);
 
   return null;
 };
