@@ -42,3 +42,11 @@ ul {
     list-style: none;
   }
 }
+.nav-link {
+  color: var(--dark);
+  padding: 3px 3px;
+}
+.dropdown-menu.show {
+  border-radius: 10px;
+  font-size: 0.9rem;
+}

@@ -5,6 +5,7 @@ const Input = ({ empty, ...otherProps }) => {
   return (
     <input
       autoComplete="off"
+      spellCheck="false"
       className={styles.input}
       {...otherProps}
       style={{ border: empty && "none" }}

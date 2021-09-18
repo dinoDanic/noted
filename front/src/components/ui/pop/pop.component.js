@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import styles from "./pop.module.scss";
 import { popButtom } from "../../../theme/animations";
 
-const Pop = ({ show, setShow, children, variant }) => {
+const Pop = ({ show, setShow, children }) => {
   return (
     <>
       {show &&

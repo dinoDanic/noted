@@ -1,12 +1,14 @@
 .note {
+  min-width: 240px;
   min-height: 85px;
   max-width: 800px;
   flex: 1;
   border-radius: 10px;
   padding: 10px;
   position: relative;
+
   &:hover {
-    .delete {
+    .menu {
       opacity: 1;
     }
   }
@@ -21,16 +23,9 @@
   font-weight: 300;
   font-size: 0.85rem;
 }
+
 .save {
   position: absolute;
   top: 0px;
-  right: 5px;
-}
-.delete {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  opacity: 0;
-  transition: 0.2s ease all;
-  cursor: pointer;
+  right: 30px;
 }

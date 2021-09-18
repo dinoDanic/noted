@@ -18,7 +18,6 @@ const Home = () => {
     <>
       <div className={styles.home}>
         <div className={styles.noteWrap}>
-          <h1>Notes</h1>
           <div className={styles.noteFlex}>
             {notes.map((note) => {
               return (
