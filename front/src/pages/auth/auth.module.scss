@@ -4,4 +4,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  font-size: var(--fs-sm);
+}
+.holder {
+  width: 360px;
+}
+.switcher {
+  display: flex;
+  padding: 0 var(--sp-md);
+  margin-bottom: 4px;
+  color: white;
+  cursor: pointer;
+  div {
+    margin-right: 10px;
+  }
+}
+.arrow {
+  opacity: 0.5;
+  transition: 0.2s ease all;
 }

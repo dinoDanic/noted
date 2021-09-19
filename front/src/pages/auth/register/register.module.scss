@@ -1,21 +1,9 @@
 .register {
-  position: absolute;
 }
 .info {
   min-width: 100px;
 }
 .button {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 15px;
-}
-.login {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 20px;
-  padding-top: 10px;
-  cursor: pointer;
-}
-p {
-  color: white;
+  justify-content: center;
 }

@@ -1,0 +1,9 @@
+.card {
+  background-color: var(--dark);
+  border: 1px solid var(--gray);
+  border-radius: var(--br);
+  padding: var(--sp-lg) var(--sp-md);
+  font-size: var(--fs-sm);
+  height: auto;
+  transition: 0.2s ease all;
+}
