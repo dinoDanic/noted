@@ -5,15 +5,14 @@
   width: 280px;
   position: relative;
 }
-.button {
+.buttons {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-top: 10px;
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
   button {
+    position: relative;
+    display: inline-block;
     border-radius: 100%;
   }
 }

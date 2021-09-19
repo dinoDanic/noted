@@ -6,9 +6,9 @@ import { createNote } from "../../redux/notes/notes.actions";
 
 import Input from "../ui/input/input.component";
 import Textarea from "../ui/textarea/textarea.component";
-import { Button } from "react-bootstrap";
-import { Save } from "react-bootstrap-icons";
+
 import Card from "../ui/card/card.component";
+import Options from "../options/options.component";
 
 const NewNote = () => {
   const dispatch = useDispatch();
@@ -57,11 +57,7 @@ const NewNote = () => {
                 onChange={(e) => setChange(e)}
               />
             </div>
-            <div className={styles.button}>
-              <Button type="submit" variant="light" size="sm">
-                <Save />
-              </Button>
-            </div>
+            <Options />
           </form>
         </Card>
       </div>

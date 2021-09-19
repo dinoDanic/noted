@@ -1,0 +1,11 @@
+.light {
+  background-color: var(--light);
+  color: var(--dark);
+  &:hover {
+    border-color: var(--gray);
+  }
+}
+.squaer {
+  border-radius: 100%;
+  min-width: fit-content;
+}
