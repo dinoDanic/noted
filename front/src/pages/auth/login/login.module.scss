@@ -1,5 +1,10 @@
 .info {
   min-width: 100px;
+  form {
+    input {
+      margin-bottom: 20px;
+    }
+  }
 }
 .button {
   display: flex;
@@ -8,9 +13,4 @@
 
 p {
   color: white;
-}
-form {
-  input {
-    margin-bottom: 20px;
-  }
 }

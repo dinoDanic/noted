@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./new-note.module.scss";
 import { useDispatch } from "react-redux";
 
 import { createNote } from "../../redux/notes/notes.actions";
 
 import Input from "../ui/input/input.component";
-import Paper from "../ui/paper/paper.component";
 import Textarea from "../ui/textarea/textarea.component";
 import { Button } from "react-bootstrap";
 import { Save } from "react-bootstrap-icons";
+import Card from "../ui/card/card.component";
 
 const NewNote = () => {
   const dispatch = useDispatch();
-
+  const textRef = useRef();
   const [noteData, setNoteData] = useState({
     title: "",
     text: "",
   });
+
+  useEffect(() => {
+    textRef.current.focus();
+  }, []);
 
   const setChange = (e) => {
     const target = e.target.name;
@@ -35,9 +39,9 @@ const NewNote = () => {
   return (
     <div className={styles.newNote}>
       <div className={styles.noteHolder}>
-        <Paper color="yellow">
+        <Card shadow padding="sm">
           <form onSubmit={handleSubmit}>
-            <div className="addTitle">
+            <div className={styles.addTitle}>
               <Input
                 name="title"
                 empty
@@ -47,6 +51,7 @@ const NewNote = () => {
             </div>
             <div className="addText">
               <Textarea
+                theRef={textRef}
                 placeholder="Note.."
                 name="text"
                 onChange={(e) => setChange(e)}
@@ -58,7 +63,7 @@ const NewNote = () => {
               </Button>
             </div>
           </form>
-        </Paper>
+        </Card>
       </div>
     </div>
   );

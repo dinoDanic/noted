@@ -1,9 +1,14 @@
 import React from "react";
 import styles from "./textarea.module.scss";
 
-const Textarea = ({ ...otherPorps }) => {
+const Textarea = ({ theRef, ...otherPorps }) => {
   return (
-    <textarea spellCheck="false" className={styles.textarea} {...otherPorps} />
+    <textarea
+      spellCheck="false"
+      ref={theRef}
+      className={styles.textarea}
+      {...otherPorps}
+    />
   );
 };
 

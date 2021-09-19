@@ -6,6 +6,7 @@ const Input = ({ empty, label, center, ...otherProps }) => {
   const inputStyle = {
     border: empty && "none",
     textAlign: center && "center",
+    fontWeight: empty && "600",
   };
   const labelStyle = {
     textAlign: center && "center",
@@ -14,9 +15,11 @@ const Input = ({ empty, label, center, ...otherProps }) => {
 
   return (
     <div className={styles.wrap}>
-      <div className={styles.label} style={labelStyle}>
-        {label}
-      </div>
+      {label && (
+        <div className={styles.label} style={labelStyle}>
+          {label}
+        </div>
+      )}
       <input
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}

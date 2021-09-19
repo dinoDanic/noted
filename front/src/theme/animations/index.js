@@ -5,9 +5,9 @@ export const basicAnimation = {
 };
 
 export const popButtom = {
-  initial: { y: 200 },
-  animate: { y: 0 },
-  exit: { y: 200, opacity: "" },
+  initial: { y: 50, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  exit: { scale: [1, 0.8, 0.6], opacity: [1, 0, 0] },
 };
 
 export const noteEnter = {

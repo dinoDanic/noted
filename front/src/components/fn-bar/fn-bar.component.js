@@ -22,9 +22,9 @@ const FnBar = () => {
       <div className={styles.fnBar}>
         <motion.div
           className={styles.bar}
-          initial={{ y: 60 }}
+          /*    initial={{ y: 60 }}
           animate={{ y: 0 }}
-          exit={{ y: 60 }}
+          exit={{ y: 60 }} */
         >
           <Card padding="xs" shadow>
             <Item
@@ -37,7 +37,7 @@ const FnBar = () => {
       </div>
       <AnimatePresence key="323">
         {newNote && (
-          <Pop show={newNote} setShow={toggleShow} variant="buttom" key="tet">
+          <Pop show={newNote} variant="bottom" setShow={toggleShow} key="tet">
             <NewNote />
           </Pop>
         )}

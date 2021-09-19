@@ -5,22 +5,26 @@ import { motion } from "framer-motion";
 import styles from "./pop.module.scss";
 import { popButtom } from "../../../theme/animations";
 
-const Pop = ({ show, setShow, children }) => {
+const Pop = ({ show, setShow, children, variant }) => {
+  const popStyle = {
+    alignItems: variant === "bottom" && "flex-end",
+  };
   return (
     <>
       {show &&
         ReactDOM.createPortal(
-          <motion.div
-            key="1232"
-            className={styles.pop}
-            variants={popButtom}
-            animate="animate"
-            initial="initial"
-            exit="exit"
-          >
+          <div className={styles.container} style={popStyle}>
             <div className={styles.layer} onClick={() => setShow()} />
-            <div className={styles.content}>{children}</div>
-          </motion.div>,
+            <motion.div
+              className={styles.content}
+              variants={popButtom}
+              animate="animate"
+              initial="initial"
+              exit="exit"
+            >
+              {children}
+            </motion.div>
+          </div>,
           document.getElementById("pop")
         )}
     </>
