@@ -1,15 +1,20 @@
 .item {
   cursor: pointer;
-  padding: 8px;
-  border-radius: 9px;
+  padding: var(--sp-sm);
   transition: 0.2s ease all;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
   svg {
     transition: 0.2s ease all;
+    color: var(--gray);
   }
   &:hover {
-    background: var(--dark);
-    svg {
-      color: var(--light);
+    .icon {
+      svg {
+        color: var(--light);
+      }
     }
   }
 }

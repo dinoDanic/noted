@@ -1,0 +1,13 @@
+.label {
+  position: absolute;
+  top: -50px;
+  color: var(--light);
+  width: max-content;
+}
+.arrow {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  left: 0;
+}

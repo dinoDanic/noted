@@ -9,6 +9,7 @@ import styles from "./fn-bar.module.scss";
 import Item from "./item/item.component";
 import NewNote from "../new-note/new-note.component";
 import Pop from "../ui/pop/pop.component";
+import Card from "../ui/card/card.component";
 
 const FnBar = () => {
   const newNote = useSelector((state) => state.body.newNote);
@@ -25,7 +26,13 @@ const FnBar = () => {
           animate={{ y: 0 }}
           exit={{ y: 60 }}
         >
-          <Item icon={<Sticky size="25" />} onClick={toggleShow} />
+          <Card padding="xs" shadow>
+            <Item
+              name="New Note"
+              icon={<Sticky size="25" />}
+              onClick={toggleShow}
+            />
+          </Card>
         </motion.div>
       </div>
       <AnimatePresence key="323">
