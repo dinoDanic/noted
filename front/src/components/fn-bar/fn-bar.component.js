@@ -22,9 +22,9 @@ const FnBar = () => {
       <div className={styles.fnBar}>
         <motion.div
           className={styles.bar}
-          /*    initial={{ y: 60 }}
-          animate={{ y: 0 }}
-          exit={{ y: 60 }} */
+          initial={{ y: 80 }}
+          animate={{ y: 0, transition: { delay: 0.3 } }}
+          exit={{ y: 70 }}
         >
           <Card padding="xs" shadow>
             <Item

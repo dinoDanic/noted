@@ -7,6 +7,7 @@ const Input = ({ empty, label, center, ...otherProps }) => {
     border: empty && "none",
     textAlign: center && "center",
     fontWeight: empty && "600",
+    padding: empty && "0px",
   };
   const labelStyle = {
     textAlign: center && "center",

@@ -4,13 +4,13 @@ import { CaretDownFill } from "react-bootstrap-icons";
 
 import Card from "../card/card.component";
 
-const Label = ({ name, visible = false }) => {
+const Label = ({ name, fontSize, visible = false, ...otherPorps }) => {
   return (
     <>
       {visible && (
-        <div className={styles.label}>
+        <div className={styles.label} {...otherPorps}>
           <Card style={{ padding: "var(--sp-xs) var(--sp-md)" }}>
-            {name}
+            <p style={{ fontSize: `${fontSize}px` }}>{name}</p>
             <div className={styles.arrow}>
               <CaretDownFill />
             </div>

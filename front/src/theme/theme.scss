@@ -1,4 +1,5 @@
 :root {
+  /* main colors */
   --dark: #333;
   --gray: #636363;
   --blue: #444c59;
@@ -13,4 +14,18 @@
   --sp-lg: 24px;
 
   --fs-sm: 14px;
+
+  /* color picker */
+  --color1: var(--dark);
+  --color2: #4d2625;
+  --color3: #56411c;
+  --color4: #58521e;
+  --color5: #2e4f22;
+  --color6: #174642;
+  --color7: #284b53;
+  --color8: #1c3353;
+  --color9: #3a2352;
+  --color10: #501f3c;
+  --color11: #3b2a1a;
+  --color12: #35373a;
 }

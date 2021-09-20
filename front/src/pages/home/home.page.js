@@ -29,7 +29,7 @@ const Home = () => {
                   initial="initial"
                   exit="exit"
                 >
-                  <Note note={note} color="yellow" />
+                  <Note note={note} />
                 </motion.div>
               );
             })}

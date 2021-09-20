@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./new-note.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { createNote } from "../../redux/notes/notes.actions";
 
@@ -11,16 +11,25 @@ import Card from "../ui/card/card.component";
 import Options from "../options/options.component";
 
 const NewNote = () => {
+  const newNote = useSelector((state) => state.newNote);
   const dispatch = useDispatch();
   const textRef = useRef();
   const [noteData, setNoteData] = useState({
     title: "",
     text: "",
+    color: newNote.color,
   });
 
   useEffect(() => {
     textRef.current.focus();
   }, []);
+
+  useEffect(() => {
+    setNoteData({
+      ...noteData,
+      color: newNote.color,
+    });
+  }, [newNote, noteData]);
 
   const setChange = (e) => {
     const target = e.target.name;
@@ -39,7 +48,7 @@ const NewNote = () => {
   return (
     <div className={styles.newNote}>
       <div className={styles.noteHolder}>
-        <Card shadow padding="sm">
+        <Card shadow padding="sm" color={newNote.color}>
           <form onSubmit={handleSubmit}>
             <div className={styles.addTitle}>
               <Input
@@ -51,6 +60,7 @@ const NewNote = () => {
             </div>
             <div className="addText">
               <Textarea
+                empty
                 theRef={textRef}
                 placeholder="Note.."
                 name="text"

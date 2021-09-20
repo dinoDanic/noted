@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./button.module.scss";
 import { Spinner } from "react-bootstrap";
+
+import Label from "../label/label.component";
+
 import "../../../theme/button.scss";
 
 const Button = ({
@@ -9,8 +12,10 @@ const Button = ({
   children,
   valid = true,
   customClass,
+  label,
   ...otherProps
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
   const buttonStyle = {
     cursor: !valid && "not-allowed",
     opacity: !valid && 0.5,
@@ -20,6 +25,8 @@ const Button = ({
       className={`${styles.button} ${customClass}`}
       {...otherProps}
       style={buttonStyle}
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
     >
       {loading && (
         <div className={styles.spinner}>
@@ -27,6 +34,15 @@ const Button = ({
         </div>
       )}
       {children}
+      {label && (
+        <Label
+          fontSize={12}
+          name={label}
+          visible={isVisible}
+          label={label}
+          style={{ top: "-40px" }}
+        />
+      )}
     </button>
   );
 };
