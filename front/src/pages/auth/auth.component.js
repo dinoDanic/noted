@@ -51,7 +51,7 @@ const Auth = () => {
           </div>
         </div>
         <AnimatePresence exitBeforeEnter key="something">
-          <Card shadow>
+          <Card shadow padding="md">
             {isLogin && <Login key="login" />}
             {!isLogin && <Register key="regiseter" />}
           </Card>

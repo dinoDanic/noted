@@ -11,9 +11,9 @@ import Options from "../../components/options/options.component";
 
 import { updateNote } from "../../api";
 
-const Note = React.memo(({ note, color }) => {
-  console.log(note, color);
-  const { title, text, _id } = note;
+const Note = ({ note }) => {
+  const { title, text, _id, color } = note;
+  const [trigger, setTrigger] = useState(0);
   const [cloudUpload, setCloudUpload] = useState(false);
   const [cloudDone, setCloudDone] = useState(false);
   const [optionsVisible, setOptionsVisible] = useState(false);
@@ -22,11 +22,17 @@ const Note = React.memo(({ note, color }) => {
     title: title,
     text: text,
     _id: _id,
+    color: color,
   });
 
   useEffect(() => {
     let timeout = null;
-    if (noteUpdate.title !== title || noteUpdate.text !== text) {
+    if (
+      noteUpdate.title !== title ||
+      noteUpdate.text !== text ||
+      noteUpdate.color !== color
+    ) {
+      console.log("noteColor: ", noteUpdate.color, ",", "color: ", color);
       setCloudUpload(true);
       timeout = setTimeout(function () {
         handleUpdate();
@@ -75,7 +81,7 @@ const Note = React.memo(({ note, color }) => {
       onMouseEnter={() => setOptionsVisible(true)}
       onMouseLeave={() => setOptionsVisible(false)}
     >
-      <Card padding="md" color={note.color}>
+      <Card padding="md" color={noteUpdate.color}>
         <div className={styles.header}>
           <Input
             name="title"
@@ -98,10 +104,15 @@ const Note = React.memo(({ note, color }) => {
           {cloudUpload && <CloudArrowUp size={15} />}
           {cloudDone && <CloudCheck size={15} />}
         </div>
-        <Options save={false} visible={optionsVisible} />
+        <Options
+          setNoteUpdate={setNoteUpdate}
+          noteUpdate={noteUpdate}
+          createMode
+          visible={optionsVisible}
+        />
       </Card>
     </div>
   );
-});
+};
 
 export default Note;

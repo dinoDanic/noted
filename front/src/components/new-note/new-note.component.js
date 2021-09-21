@@ -29,7 +29,8 @@ const NewNote = () => {
       ...noteData,
       color: newNote.color,
     });
-  }, [newNote, noteData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newNote]);
 
   const setChange = (e) => {
     const target = e.target.name;
@@ -48,7 +49,7 @@ const NewNote = () => {
   return (
     <div className={styles.newNote}>
       <div className={styles.noteHolder}>
-        <Card shadow padding="sm" color={newNote.color}>
+        <Card shadow padding="md" color={newNote.color}>
           <form onSubmit={handleSubmit}>
             <div className={styles.addTitle}>
               <Input
@@ -60,8 +61,8 @@ const NewNote = () => {
             </div>
             <div className="addText">
               <Textarea
-                empty
                 theRef={textRef}
+                empty
                 placeholder="Note.."
                 name="text"
                 onChange={(e) => setChange(e)}
