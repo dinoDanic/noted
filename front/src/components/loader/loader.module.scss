@@ -1,0 +1,12 @@
+.loader {
+  position: absolute;
+  width: 51px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -51px;
+  svg {
+    color: var(--light);
+  }
+}

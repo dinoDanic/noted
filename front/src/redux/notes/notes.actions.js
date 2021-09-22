@@ -34,7 +34,27 @@ export const getNotes = () => async (dispatch) => {
 export const updateNote = (data) => async (dispatch) => {
   const { _id } = data;
   try {
+    dispatch({
+      type: bodyActionType.SET_CLOUD_UPLOAD,
+      payload: true,
+    });
     await api.updateNote(_id, data);
+    setTimeout(() => {
+      dispatch({
+        type: bodyActionType.SET_CLOUD_UPLOAD,
+        payload: false,
+      });
+      dispatch({
+        type: bodyActionType.SET_CLOUD_DONE,
+        payload: true,
+      });
+    }, 1000);
+    setTimeout(() => {
+      dispatch({
+        type: bodyActionType.SET_CLOUD_DONE,
+        payload: false,
+      });
+    }, 3000);
   } catch (error) {}
 };
 

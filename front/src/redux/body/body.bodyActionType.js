@@ -1,4 +1,6 @@
 export const bodyActionType = {
   SET_IS_LOADING: "SET_IS_LOADING",
   SET_NOTE: "SET_NOTE",
+  SET_CLOUD_UPLOAD: "SET_CLOUD_UPLOAD",
+  SET_CLOUD_DONE: "SET_CLOUD_DONE",
 };

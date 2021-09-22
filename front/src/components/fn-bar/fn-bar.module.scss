@@ -7,10 +7,10 @@
   align-items: center;
 }
 .bar {
-  /* padding: 4px;
-  border-radius: 9px;
-  background: var(--light);
+  position: relative;
+}
+.items {
   display: flex;
-  align-items: center;
-  justify-content: center; */
+}
+.loader {
 }

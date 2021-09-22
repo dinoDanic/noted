@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Sticky } from "react-bootstrap-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ import Item from "./item/item.component";
 import NewNote from "../new-note/new-note.component";
 import Pop from "../ui/pop/pop.component";
 import Card from "../ui/card/card.component";
+import Loader from "../loader/loader.component";
 
 const FnBar = () => {
   const newNote = useSelector((state) => state.body.newNote);
@@ -26,12 +27,17 @@ const FnBar = () => {
           animate={{ y: 0, transition: { delay: 0.3 } }}
           exit={{ y: 70 }}
         >
+          <div className={styles.loader}>
+            <Loader />
+          </div>
           <Card padding="xs" shadow>
-            <Item
-              name="New Note"
-              icon={<Sticky size="25" />}
-              onClick={toggleShow}
-            />
+            <div className={styles.items}>
+              <Item
+                name="New Note"
+                icon={<Sticky size="25" />}
+                onClick={toggleShow}
+              />
+            </div>
           </Card>
         </motion.div>
       </div>

@@ -3,7 +3,7 @@ import { bodyActionType } from "./body.bodyActionType";
 const INITIAL_STATE = {
   isLoading: false,
   newNote: false,
-  cloudUpload: true,
+  cloudUpload: false,
   cloudDone: false,
 };
 
@@ -17,6 +17,16 @@ export const bodyReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         newNote: action.payload,
+      };
+    case bodyActionType.SET_CLOUD_UPLOAD:
+      return {
+        ...state,
+        cloudUpload: action.payload,
+      };
+    case bodyActionType.SET_CLOUD_DONE:
+      return {
+        ...state,
+        cloudDone: action.payload,
       };
 
     default:
