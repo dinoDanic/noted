@@ -12,7 +12,6 @@ import { updateNote } from "../../redux/notes/notes.actions";
 const Note = ({ note }) => {
   const { title, text, _id, color } = note;
   const dispatch = useDispatch();
-  const [optionsVisible, setOptionsVisible] = useState(false);
   const [noteUpdate, setNoteUpdate] = useState({
     title: title,
     text: text,
@@ -48,11 +47,7 @@ const Note = ({ note }) => {
   }, [color]);
 
   return (
-    <div
-      className={styles.note}
-      onMouseEnter={() => setOptionsVisible(true)}
-      onMouseLeave={() => setOptionsVisible(false)}
-    >
+    <div className={styles.note}>
       <Card padding="md" color={noteUpdate.color}>
         <div className={styles.header}>
           <Input
@@ -76,7 +71,6 @@ const Note = ({ note }) => {
           setNoteUpdate={setNoteUpdate}
           noteUpdate={noteUpdate}
           createMode
-          visible={optionsVisible}
         />
       </Card>
     </div>
