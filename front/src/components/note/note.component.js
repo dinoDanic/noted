@@ -67,11 +67,13 @@ const Note = ({ note }) => {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <Options
-          setNoteUpdate={setNoteUpdate}
-          noteUpdate={noteUpdate}
-          createMode
-        />
+        <div className={styles.menu}>
+          <Options
+            setNoteUpdate={setNoteUpdate}
+            noteUpdate={noteUpdate}
+            createMode
+          />
+        </div>
       </Card>
     </div>
   );

@@ -5,7 +5,6 @@ import notesActionTypes from "../notes/notes.actionTypes";
 export const createNote = (noteData) => async (dispatch) => {
   try {
     const response = await api.newNote(noteData);
-    console.log(response);
     if (response.statusText !== "OK") {
       alert("failed creating note");
       return;

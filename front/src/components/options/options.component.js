@@ -13,12 +13,13 @@ import { updateNewNoteColor } from "../../redux/new-note/new-note.actions";
 
 import Button from "../ui/button/button.component";
 import PopInside from "../ui/pop-inside/pop-inside.component";
-import Colors from "../ui/colors/colors.component";
+import Colors from "../colors/colors.component";
 
-const Options = ({ visible = true, createMode, setNoteUpdate, noteUpdate }) => {
+const Options = ({ createMode, setNoteUpdate, noteUpdate }) => {
   const dispatch = useDispatch();
-  const [isColor, setIsColor] = useState(false);
   const [selectedColor, setSelectedColor] = useState("");
+  const [isColor, setIsColor] = useState(false);
+  const [isAlarm, setIsAlarm] = useState(false);
 
   useEffect(() => {
     if (!createMode) {
@@ -34,7 +35,7 @@ const Options = ({ visible = true, createMode, setNoteUpdate, noteUpdate }) => {
   }, [selectedColor]);
 
   return (
-    <div className={styles.options} style={{ opacity: visible ? 1 : 0 }}>
+    <div className={styles.options}>
       <div className={styles.color}>
         {isColor && (
           <PopInside setLayer={setIsColor} top={-98}>
@@ -51,9 +52,17 @@ const Options = ({ visible = true, createMode, setNoteUpdate, noteUpdate }) => {
           <PaintBucket />
         </Button>
       </div>
-      <Button size="sm" customClass="squaer" label="Set Alarm" type="button">
-        <Alarm />
-      </Button>
+      <div className={styles.alarm}>
+        <Button
+          size="sm"
+          customClass="squaer"
+          label="Set Alarm"
+          type="button"
+          onClick={() => setIsAlarm(!isAlarm)}
+        >
+          <Alarm />
+        </Button>
+      </div>
       <Button size="sm" customClass="squaer" label="Collaborator" type="button">
         <PersonPlus />
       </Button>
